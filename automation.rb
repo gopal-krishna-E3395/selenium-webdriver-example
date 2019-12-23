@@ -98,11 +98,11 @@ sleep(3)
 # Select the upload button by it's unique id on the page
 driver.find_element(id: ':8').click
 
-# This will open the file upload dialog box, but we can't actually access it
-# so instead we need to try to submit directly to the input field in the page using the 'send_keys' method
-# instead of directly using the upload prompt. if we dig around the page a little more we can find the actual input with the name "file". 
-# Let's instaed target this and directly upload the file we want to it using send_keys
-# We should be able to upload our file by doing something like this
+# Normally at this point you would open the file upload prompt to select a file, but we can't actually interact with it
+# like a human. So instead we need to try to submit directly to the input field in the page using the 'send_keys' method.
+# If we dig around the page a little more we can find the actual input with a type of "file". 
+# So let's instead target this and directly upload the file we want to it using send_keys.
+# We should be able to upload our file by doing something like this then
 driver.find_element(xpath: '//*[@type="file"]').send_keys("#{Dir.pwd}/hn_data.csv")
 
 sleep(3)
